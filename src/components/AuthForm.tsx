@@ -7,7 +7,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../auth/firebase";
 
-const AuthModal = () => {
+const AuthForm = () => {
   const [authMode, setAuthMode] = useState("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -76,4 +76,4 @@ const AuthModal = () => {
   );
 };
 
-export default AuthModal;
+export default AuthForm;
