@@ -1,8 +1,14 @@
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import AuthModal from "./AuthModal";
+import AuthForm from "./AuthForm";
 import UserDropdown from "./UserDropdown";
 import { auth } from "@/auth/firebase";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 const UserButton = () => {
   const user = auth.currentUser;
@@ -19,8 +25,12 @@ const UserButton = () => {
               <AvatarFallback>JD</AvatarFallback>
             </Avatar>
           </DialogTrigger>
+          <DialogTitle className="sr-only">auth modal</DialogTitle>
           <DialogContent className="text-center">
-            <AuthModal />
+            <DialogDescription className="sr-only">
+              auth modal
+            </DialogDescription>
+            <AuthForm />
           </DialogContent>
         </Dialog>
       )}
