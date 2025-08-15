@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import { auth } from "./auth/firebase";
 import { onAuthStateChanged, type User } from "firebase/auth";
 import { useState, useEffect } from "react";
+import { Toaster } from "@/components/ui/sonner";
 
 const App = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -18,6 +19,8 @@ const App = () => {
       <Navbar />
 
       {user?.email}
+
+      <Toaster richColors />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../auth/firebase";
+import { toast } from "sonner";
 
 const AuthForm = () => {
   const [authMode, setAuthMode] = useState("login");
@@ -20,19 +21,15 @@ const AuthForm = () => {
     e.preventDefault();
 
     if (authMode === "login") {
-      signInWithEmailAndPassword(auth, email, password).then(
-        (userCredential) => {
-          const user = userCredential.user;
-          alert(user);
-        },
-      );
+      signInWithEmailAndPassword(auth, email, password).catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
     } else {
-      createUserWithEmailAndPassword(auth, email, password).then(
-        (userCredential) => {
-          const user = userCredential.user;
-          console.log(user);
-        },
-      );
+      createUserWithEmailAndPassword(auth, email, password).catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
     }
   }
 
