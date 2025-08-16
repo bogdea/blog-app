@@ -1,4 +1,10 @@
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import {
   NavigationMenu,
@@ -15,6 +21,8 @@ const MobileMenu = () => {
           <Menu />
         </SheetTrigger>
         <SheetContent className="flex items-center">
+          <SheetTitle className="sr-only">mobile menu</SheetTitle>
+          <SheetDescription className="sr-only">nav links</SheetDescription>
           <NavigationMenu>
             <NavigationMenuList className="flex-col space-y-2 text-center">
               <NavigationMenuItem className="text-lg">
