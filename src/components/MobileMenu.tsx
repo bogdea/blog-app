@@ -5,6 +5,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { Link } from "react-router";
 
 const MobileMenu = () => {
   return (
@@ -17,10 +18,10 @@ const MobileMenu = () => {
           <NavigationMenu>
             <NavigationMenuList className="flex-col space-y-2 text-center">
               <NavigationMenuItem className="text-lg">
-                <a href="/">home</a>
+                <Link to={"/"}>home</Link>
               </NavigationMenuItem>
               <NavigationMenuItem className="text-lg">
-                <a href="#">posts</a>
+                <Link to={"posts"}>posts</Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>

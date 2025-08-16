@@ -3,16 +3,17 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { Link } from "react-router";
 
 const DesktopMenu = () => {
   return (
     <NavigationMenu className="hidden md:flex">
       <NavigationMenuList className="space-x-2">
         <NavigationMenuItem>
-          <a href="/">home</a>
+          <Link to={"/"}>home</Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <a href="#">posts</a>
+          <Link to={"posts"}>posts</Link>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

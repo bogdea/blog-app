@@ -3,6 +3,8 @@ import { auth } from "./auth/firebase";
 import { onAuthStateChanged, type User } from "firebase/auth";
 import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
+import Posts from "./components/Posts";
+import { Route, Routes } from "react-router";
 
 const App = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -12,13 +14,15 @@ const App = () => {
       setUser(user);
     });
     return unsub;
-  }, []);
+  }, [user]);
 
   return (
     <div>
       <Navbar />
 
-      {user?.email}
+      <Routes>
+        <Route path="posts" element={<Posts />} />
+      </Routes>
 
       <Toaster richColors />
     </div>
