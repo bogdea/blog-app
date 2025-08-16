@@ -17,7 +17,7 @@ const App = () => {
   }, [user]);
 
   return (
-    <div>
+    <div className="p-4">
       <Navbar />
 
       <Routes>

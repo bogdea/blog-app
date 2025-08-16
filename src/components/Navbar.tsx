@@ -6,7 +6,7 @@ import DesktopMenu from "./DesktopMenu";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between p-4">
+    <div className="flex justify-between">
       <Logo brand="blog" />
 
       <div className="flex space-x-4">
