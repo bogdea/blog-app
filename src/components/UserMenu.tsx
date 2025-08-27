@@ -10,10 +10,18 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "./ui/button";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
+import { toast } from "sonner";
 
 const UserMenu = () => {
   function handleSignOut() {
-    signOut(auth);
+    signOut(auth)
+      .then(() => {
+        toast.success("signed out");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        toast.error(errorCode);
+      });
   }
 
   return (

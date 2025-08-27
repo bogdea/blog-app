@@ -8,6 +8,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { toast } from "sonner";
 
 const AuthForm = () => {
   const [authMode, setAuthMode] = useState<AuthMode>("signup");
@@ -26,9 +27,23 @@ const AuthForm = () => {
     e.preventDefault();
 
     if (authMode === "signup") {
-      createUserWithEmailAndPassword(auth, email, password);
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          toast.success("account created");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          toast.error(errorCode);
+        });
     } else {
-      signInWithEmailAndPassword(auth, email, password);
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          toast.success("signed in");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          toast.error(errorCode);
+        });
     }
   }
 
