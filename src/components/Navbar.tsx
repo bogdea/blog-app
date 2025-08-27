@@ -8,7 +8,7 @@ import AuthModal from "./AuthModal";
 
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-between p-5">
+    <div className="flex items-center justify-between">
       <Logo brand="blog" />
 
       <div className="flex items-center space-x-3">
