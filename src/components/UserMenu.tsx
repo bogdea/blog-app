@@ -8,8 +8,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "./ui/button";
+import { signOut } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 
 const UserMenu = () => {
+  function handleSignOut() {
+    signOut(auth);
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -22,7 +28,11 @@ const UserMenu = () => {
         <DropdownMenuLabel>my account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>profile</DropdownMenuItem>
-        <Button className="w-full" variant={"destructive"}>
+        <Button
+          className="w-full"
+          variant={"destructive"}
+          onClick={handleSignOut}
+        >
           log out
         </Button>
       </DropdownMenuContent>

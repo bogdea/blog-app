@@ -3,6 +3,8 @@ import Logo from "./ui/Logo";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import UserMenu from "./UserMenu";
+import { auth } from "@/lib/firebase";
+import AuthModal from "./AuthModal";
 
 const Navbar = () => {
   return (
@@ -12,7 +14,8 @@ const Navbar = () => {
       <div className="flex items-center space-x-3">
         <DesktopMenu />
         <MobileMenu />
-        <UserMenu />
+
+        {auth.currentUser ? <UserMenu /> : <AuthModal />}
       </div>
     </div>
   );
