@@ -4,6 +4,8 @@ import { auth } from "./lib/firebase";
 import { useEffect, useState } from "react";
 import type { User } from "firebase/auth";
 import { Toaster } from "@/components/ui/sonner";
+import { Route, Routes } from "react-router";
+import Home from "./pages/Home";
 
 const App = () => {
   const [user, setUser] = useState<User | null>();
@@ -15,8 +17,12 @@ const App = () => {
   }, [user]);
 
   return (
-    <div>
+    <div className="p-5">
       <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
 
       <Toaster richColors />
     </div>
