@@ -5,6 +5,7 @@ import MobileMenu from "./MobileMenu";
 import UserMenu from "./UserMenu";
 import { auth } from "@/lib/firebase";
 import AuthModal from "./AuthModal";
+import CreatePostModal from "./CreatePostModal";
 
 const Navbar = () => {
   return (
@@ -12,6 +13,8 @@ const Navbar = () => {
       <Logo brand="blog" />
 
       <div className="flex items-center space-x-3">
+        {auth.currentUser ? <CreatePostModal /> : null}
+
         <DesktopMenu />
         <MobileMenu />
 
