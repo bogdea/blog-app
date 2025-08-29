@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Route, Routes } from "react-router";
 import Home from "./pages/Home";
 import Posts from "./pages/Posts";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [user, setUser] = useState<User | null>();
@@ -25,6 +26,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="posts" element={<Posts />} />
       </Routes>
+
+      <Footer />
 
       <Toaster richColors />
     </div>
