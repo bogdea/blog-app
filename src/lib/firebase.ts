@@ -9,6 +9,8 @@ const firebaseConfig = {
   storageBucket: "blog-app-b4517.firebasestorage.app",
   messagingSenderId: "554287595961",
   appId: "1:554287595961:web:bf51dfe736a5db9bdbb668",
+  databaseURL:
+    "https://blog-app-b4517-default-rtdb.europe-west1.firebasedatabase.app/",
 };
 
 const app = initializeApp(firebaseConfig);
