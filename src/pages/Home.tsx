@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import RecentPosts from "@/components/RecentPosts";
 import { useNavigate } from "react-router";
 
 const Home = () => {
@@ -16,6 +17,8 @@ const Home = () => {
           }}
         />
       </div>
+
+      <RecentPosts />
     </div>
   );
 };
