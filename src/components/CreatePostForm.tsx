@@ -7,8 +7,8 @@ import { auth, database } from "@/lib/firebase";
 import { useState } from "react";
 
 const CreatePostForm = () => {
-  const [postTitle, setPostTitle] = useState("");
-  const [postBody, setPostBody] = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const authorId = auth.currentUser?.uid;
 
   function createPost(e: React.FormEvent<HTMLFormElement>) {
@@ -18,9 +18,10 @@ const CreatePostForm = () => {
     const newPostRef = push(postListRef);
 
     set(newPostRef, {
+      id: newPostRef.key,
       authorId: authorId,
-      postTitle: postTitle,
-      postBody: postBody,
+      title: title,
+      content: content,
       createdAt: Date.now(),
     });
   }
@@ -31,15 +32,15 @@ const CreatePostForm = () => {
         <Label htmlFor="post-title">post title</Label>
         <Input
           id="post-title"
-          value={postTitle}
-          onChange={(e) => setPostTitle(e.target.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
       </div>
       <div className="space-y-2">
         <Label htmlFor="post-body">password</Label>
         <Textarea
-          value={postBody}
-          onChange={(e) => setPostBody(e.target.value)}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
         />
       </div>
 
