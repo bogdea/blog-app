@@ -1,5 +1,7 @@
 export interface PostProps {
   id: string;
+  authorId: string;
   title: string;
-  body: string;
+  content: string;
+  createdAt: Date;
 }

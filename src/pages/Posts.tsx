@@ -1,14 +1,19 @@
 import PostCard from "@/components/PostCard";
+import { database } from "@/lib/firebase";
 import type { PostProps } from "@/types/post";
+import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => res.json())
-      .then((res) => setPosts(res));
+    const postListRef = ref(database, "posts");
+
+    onValue(postListRef, (snapshot) => {
+      const data = snapshot.val();
+      setPosts(Object.values(data));
+    });
   }, []);
 
   return (
@@ -17,8 +22,10 @@ const Posts = () => {
         <PostCard
           key={post.id}
           id={post.id}
+          authorId={post.authorId}
           title={post.title}
-          body={post.body}
+          content={post.content}
+          createdAt={post.createdAt}
         />
       ))}
     </div>
