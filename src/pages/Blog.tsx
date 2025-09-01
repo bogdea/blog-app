@@ -4,7 +4,7 @@ import type { PostProps } from "@/types/post";
 import { onValue, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 
-const Posts = () => {
+const Blog = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -32,4 +32,4 @@ const Posts = () => {
   );
 };
 
-export default Posts;
+export default Blog;

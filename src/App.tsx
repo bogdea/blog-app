@@ -6,7 +6,7 @@ import type { User } from "firebase/auth";
 import { Toaster } from "@/components/ui/sonner";
 import { Route, Routes } from "react-router";
 import Home from "./pages/Home";
-import Posts from "./pages/Posts";
+import Blog from "./pages/Blog";
 import Footer from "./components/Footer";
 import Post from "./pages/Post";
 
@@ -20,12 +20,12 @@ const App = () => {
   }, [user]);
 
   return (
-    <div className="p-5">
+    <div className="px-5">
       <Navbar />
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="posts" element={<Posts />} />
+        <Route path="blog" element={<Blog />} />
         <Route path="post/:postId" element={<Post />} />
       </Routes>
 

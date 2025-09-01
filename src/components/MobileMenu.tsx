@@ -24,8 +24,18 @@ const MobileMenu = () => {
             </SheetDescription>
           </SheetHeader>
 
-          <NavLink to={"/"}>home</NavLink>
-          <NavLink to={"/posts"}>posts</NavLink>
+          <NavLink
+            to={"/"}
+            className={({ isActive }) => (isActive ? "font-medium" : "")}
+          >
+            home
+          </NavLink>
+          <NavLink
+            to={"/blog"}
+            className={({ isActive }) => (isActive ? "font-medium" : "")}
+          >
+            blog
+          </NavLink>
         </SheetContent>
       </Sheet>
     </div>

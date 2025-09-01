@@ -9,13 +9,12 @@ import CreatePostModal from "./CreatePostModal";
 
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-between">
-      <Logo brand="blog" />
-
+    <div className="sticky top-0 right-0 flex h-16 items-center justify-between bg-white">
+      <Logo brand="hipertrophy." />
       <div className="flex items-center space-x-3">
+        <DesktopMenu />
         {auth.currentUser ? <CreatePostModal /> : null}
 
-        <DesktopMenu />
         <MobileMenu />
 
         {auth.currentUser ? <UserMenu /> : <AuthModal />}
