@@ -20,14 +20,16 @@ const App = () => {
   }, [user]);
 
   return (
-    <div className="px-5">
+    <div className="flex min-h-screen flex-col px-5">
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="blog" element={<Blog />} />
-        <Route path="post/:postId" element={<Post />} />
-      </Routes>
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="post/:postId" element={<Post />} />
+        </Routes>
+      </main>
 
       <Footer />
 
