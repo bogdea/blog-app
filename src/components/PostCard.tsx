@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import type { PostProps } from "@/types/post";
 import { useNavigate } from "react-router";
 
@@ -10,13 +10,11 @@ const PostCard = (props: PostProps) => {
       key={props.id}
       id={props.id}
       onClick={() => navigate(`/post/${props.id}`)}
-      className="h-full"
+      className="cursor-pointer"
     >
-      <CardHeader>
-        <CardTitle>{props.title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p>{props.content}</p>
+      <CardContent className="space-y-3 text-left">
+        <h3 className="font-semibold">{props.title.slice(0, 100) + "..."}</h3>
+        <p>{props.content.slice(0, 100) + "..."}</p>
       </CardContent>
     </Card>
   );

@@ -1,24 +1,37 @@
 import { useEffect, useState } from "react";
 import PostCard from "./PostCard";
 import type { PostProps } from "@/types/post";
+import { database } from "@/lib/firebase";
+import { onValue, ref } from "firebase/database";
 
 const RecentPosts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => res.json())
-      .then((res) => setPosts(res));
+    const postListRef = ref(database, "posts");
+
+    onValue(postListRef, (snapshot) => {
+      const data = snapshot.val();
+      setPosts(Object.values(data));
+    });
   }, []);
 
   return (
-    <div>
-      <h1 className="my-5 text-center text-xl font-medium">recent posts</h1>
+    <div className="m-auto max-w-[400px]">
+      <h2 className="text-muted-foreground my-7 text-center text-xl font-semibold tracking-wide uppercase">
+        recent posts
+      </h2>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-3">
+      <div className="space-y-7">
         {posts.slice(0, 3).map((post: PostProps) => (
           <div key={post.id}>
-            <PostCard id={post.id} title={post.title} body={post.body} />
+            <PostCard
+              id={post.id}
+              authorId={post.authorId}
+              title={post.title}
+              content={post.content}
+              createdAt={post.createdAt}
+            />
           </div>
         ))}
       </div>

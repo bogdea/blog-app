@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="flex h-[90vh] items-center justify-center text-center">
+      <div className="flex h-[90vh] items-center justify-around">
         <Hero
           title="evidence-based hypertrophy."
           subtitle="learn what really drives muscle growth — no microtears, no myths."
@@ -16,9 +16,15 @@ const Home = () => {
             navigate("blog");
           }}
         />
+
+        <div className="hidden lg:block">
+          <RecentPosts />
+        </div>
       </div>
 
-      <RecentPosts />
+      <div className="lg:hidden">
+        <RecentPosts />
+      </div>
     </div>
   );
 };
