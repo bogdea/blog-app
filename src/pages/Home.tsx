@@ -7,13 +7,13 @@ const Home = () => {
 
   return (
     <div>
-      <div className="flex h-[90vh] items-center">
+      <div className="flex h-[90vh] items-center justify-center text-center">
         <Hero
-          title="Lorem ipsum dolor sit amet."
-          subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, ut."
-          ctaLabel="read posts"
+          title="evidence-based hypertrophy."
+          subtitle="learn what really drives muscle growth — no microtears, no myths."
+          ctaLabel="start learning"
           onClick={() => {
-            navigate("posts");
+            navigate("blog");
           }}
         />
       </div>
