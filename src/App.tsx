@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router";
 import Home from "./pages/Home";
 import Posts from "./pages/Posts";
 import Footer from "./components/Footer";
+import Post from "./pages/Post";
 
 const App = () => {
   const [user, setUser] = useState<User | null>();
@@ -25,6 +26,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="posts" element={<Posts />} />
+        <Route path="post/:postId" element={<Post />} />
       </Routes>
 
       <Footer />
